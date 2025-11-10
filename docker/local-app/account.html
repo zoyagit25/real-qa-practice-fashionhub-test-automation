@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - FashionHub</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: #f4f4f4; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        nav { background: #2c3e50; padding: 1rem 0; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: white; font-size: 1.5rem; font-weight: bold; }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 2rem; }
+        .nav-links a { color: white; text-decoration: none; }
+        
+        .account-container { padding: 3rem 0; }
+        .account-header { text-align: center; margin-bottom: 3rem; }
+        .account-info { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto; }
+        .info-item { margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #eee; }
+        .info-label { font-weight: bold; color: #555; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">FashionHub</div>
+            <ul class="nav-links">
+                <li><a href="/fashionhub/">Home</a></li>
+                <li><a href="/fashionhub/products.html">Products</a></li>
+                <li><a href="/fashionhub/about.html">About</a></li>
+                <li><a href="/fashionhub/login.html">Login</a></li>
+                <li><a href="/fashionhub/account.html">Account</a></li>
+                <li><a href="/fashionhub/cart.html">Cart</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="account-container">
+        <div class="container">
+            <div class="account-header">
+                <h1>My Account</h1>
+                <p>Manage your account information and preferences</p>
+            </div>
+            
+            <div class="account-info">
+                <div class="info-item">
+                    <div class="info-label">Username:</div>
+                    <div>demouser</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Email:</div>
+                    <div>demouser@example.com</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Member Since:</div>
+                    <div>January 2024</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Order History:</div>
+                    <div>5 orders completed</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <script>
+    // Check if user is logged in
+    window.addEventListener('load', function() {
+        const loginSuccess = sessionStorage.getItem('loginSuccess');
+        const username = sessionStorage.getItem('username');
+        
+        if (loginSuccess === 'true' && username) {
+            console.log('✅ User is logged in:', username);
+            // Update the username display
+            const usernameElement = document.querySelector('.info-item:first-child div');
+            if (usernameElement) {
+                usernameElement.textContent = username;
+            }
+        } else {
+            console.log('❌ User not logged in, redirecting to login...');
+            // Redirect to login page after a delay
+            setTimeout(() => {
+                window.location.href = '/fashionhub/login.html';
+            }, 2000);
+        }
+    });
+
+    console.log('Account page loaded successfully');
+</script>
+</body>
+</html>

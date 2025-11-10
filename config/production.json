@@ -1,0 +1,7 @@
+{
+  "baseURL": "https://pocketaces2.github.io/fashionhub/",
+  "headless": true,
+  "timeout": 45000,
+  "browsers": ["chromium", "firefox", "webkit"],
+  "slowMo": 0
+}

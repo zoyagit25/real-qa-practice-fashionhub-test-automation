@@ -1,0 +1,10 @@
+services:
+  test-automation:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./test-results:/app/test-results
+      - ./playwright-report:/app/playwright-report

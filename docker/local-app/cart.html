@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - FashionHub</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: #f4f4f4; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        nav { background: #2c3e50; padding: 1rem 0; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: white; font-size: 1.5rem; font-weight: bold; }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 2rem; }
+        .nav-links a { color: white; text-decoration: none; }
+        
+        .cart-container { padding: 3rem 0; }
+        .cart-header { text-align: center; margin-bottom: 3rem; }
+        .cart-items { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid #eee; }
+        .item-details { display: flex; align-items: center; gap: 1rem; }
+        .item-image { width: 80px; height: 80px; background: #f0f0f0; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #666; }
+        .item-price { color: #e74c3c; font-weight: bold; }
+        .remove-btn { background: #e74c3c; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; }
+        .cart-summary { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; }
+        .total { font-size: 1.5rem; font-weight: bold; margin: 1rem 0; }
+        .checkout-btn { background: #27ae60; color: white; border: none; padding: 1rem 2rem; border-radius: 4px; font-size: 1.1rem; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">FashionHub</div>
+            <ul class="nav-links">
+                <li><a href="/fashionhub/">Home</a></li>
+                <li><a href="/fashionhub/products.html">Products</a></li>
+                <li><a href="/fashionhub/about.html">About</a></li>
+                <li><a href="/fashionhub/login.html">Login</a></li>
+                <li><a href="/fashionhub/account.html">Account</a></li>
+                <li><a href="/fashionhub/cart.html">Cart</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="cart-container">
+        <div class="container">
+            <div class="cart-header">
+                <h1>Shopping Cart</h1>
+                <p>Review your items before checkout</p>
+            </div>
+            
+            <div class="cart-items">
+                <div class="cart-item">
+                    <div class="item-details">
+                        <div class="item-image">Dress</div>
+                        <div>
+                            <h3>Elegant Summer Dress</h3>
+                            <p>Size: M | Color: Blue</p>
+                        </div>
+                    </div>
+                    <div class="item-price">$49.99</div>
+                    <button class="remove-btn">Remove</button>
+                </div>
+                
+                <div class="cart-item">
+                    <div class="item-details">
+                        <div class="item-image">Sneakers</div>
+                        <div>
+                            <h3>Casual Sneakers</h3>
+                            <p>Size: 9 | Color: White</p>
+                        </div>
+                    </div>
+                    <div class="item-price">$59.99</div>
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+            
+            <div class="cart-summary">
+                <h2>Order Summary</h2>
+                <div class="total">Total: $109.98</div>
+                <button class="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        console.log('Cart page loaded successfully');
+        
+        // Remove item functionality
+        document.querySelectorAll('.remove-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const itemName = this.closest('.cart-item').querySelector('h3').textContent;
+                console.log('Removed from cart:', itemName);
+                this.closest('.cart-item').remove();
+                alert('Removed ' + itemName + ' from cart!');
+            });
+        });
+        
+        // Checkout functionality
+        document.querySelector('.checkout-btn').addEventListener('click', function() {
+            console.log('Proceeding to checkout');
+            alert('Redirecting to checkout...');
+        });
+    </script>
+</body>
+</html>

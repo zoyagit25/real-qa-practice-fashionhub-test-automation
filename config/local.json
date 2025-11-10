@@ -1,0 +1,7 @@
+{
+  "baseURL": "http://localhost:4000/fashionhub/",
+  "headless": true,
+  "timeout": 60000,
+  "browsers": ["chromium", "firefox", "webkit"],
+  "slowMo": 0
+}

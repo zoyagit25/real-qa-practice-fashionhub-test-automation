@@ -1,0 +1,24 @@
+{
+  "name": "fashionhub-test-automation",
+  "version": "1.0.0",
+  "scripts": {
+     "test": "playwright test",
+    "test:local": "NODE_ENV=local playwright test",
+    "test:staging": "NODE_ENV=staging playwright test", 
+    "test:production": "NODE_ENV=production playwright test",
+    "test:headed": "playwright test --headed",
+    "report:local": "npx playwright show-report playwright-report/local",
+    "report:staging": "npx playwright show-report playwright-report/staging",
+    "report:production": "npx playwright show-report playwright-report/production",
+    "report:all": "start playwright-report/local/index.html && start playwright-report/staging/index.html && start playwright-report/production/index.html",
+    "docker:local": "docker-compose -f docker-compose.local.yml up --build --exit-code-from test-automation",
+    "docker:staging": "docker-compose -f docker-compose.staging.yml up --build --exit-code-from test-automation",
+    "docker:production": "docker-compose -f docker-compose.production.yml up --build --exit-code-from test-automation",
+    "install:browsers": "npx playwright install --with-deps"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0"
+  }
+}

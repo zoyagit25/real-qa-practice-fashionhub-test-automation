@@ -1,0 +1,43 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+playwright/.cache/
+.env
+.DS_Store
+
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+.cache/
+
+# Playwright
+playwright/.cache/
+playwright-report/
+test-results/
+blob-report/
+*.zip
+*.mp4
+*.webm
+*.png
+*.json
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# System files
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/

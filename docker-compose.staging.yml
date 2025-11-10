@@ -1,0 +1,27 @@
+services:
+  staging-app:
+    build: 
+      context: ./docker/local-app
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    networks:
+      - staging-network
+
+  test-automation:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=staging
+    volumes:
+      - ./test-results:/app/test-results
+      - ./playwright-report:/app/playwright-report
+    depends_on:
+      - staging-app
+    networks:
+      - staging-network
+
+networks:
+  staging-network:
+    driver: bridge

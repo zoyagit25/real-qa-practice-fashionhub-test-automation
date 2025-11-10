@@ -1,0 +1,27 @@
+services:
+  fashionhub-app:
+    build: 
+      context: ./docker/local-app  # 关键：指定正确的构建上下文
+      dockerfile: Dockerfile
+    ports:
+      - "4000:80"
+    networks:
+      - test-network
+
+  test-automation:
+    build: 
+      context: .  # 项目根目录
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=local
+    volumes:
+      - ./test-results:/app/test-results
+      - ./playwright-report:/app/playwright-report
+    depends_on:
+      - fashionhub-app
+    networks:
+      - test-network
+
+networks:
+  test-network:
+    driver: bridge

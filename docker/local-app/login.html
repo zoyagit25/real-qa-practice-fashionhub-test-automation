@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - FashionHub</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: #f4f4f4; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        nav { background: #2c3e50; padding: 1rem 0; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: white; font-size: 1.5rem; font-weight: bold; }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 2rem; }
+        .nav-links a { color: white; text-decoration: none; }
+        
+        .login-container { display: flex; justify-content: center; align-items: center; min-height: 70vh; }
+        .login-form { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+        .login-form h2 { text-align: center; margin-bottom: 2rem; color: #2c3e50; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: #555; }
+        .form-group input { width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; }
+        .login-btn { width: 100%; padding: 0.75rem; background: #3498db; color: white; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; transition: background 0.3s; }
+        .login-btn:hover { background: #2980b9; }
+        .demo-credentials { background: #f8f9fa; padding: 1rem; border-radius: 4px; margin-top: 1rem; font-size: 0.9rem; color: #666; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">FashionHub</div>
+            <ul class="nav-links">
+                <li><a href="/fashionhub/">Home</a></li>
+                <li><a href="/fashionhub/products.html">Products</a></li>
+                <li><a href="/fashionhub/about.html">About</a></li>
+                <li><a href="/fashionhub/login.html">Login</a></li>
+                <li><a href="/fashionhub/account.html">Account</a></li>
+                <li><a href="/fashionhub/cart.html">Cart</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Login to Your Account</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            
+            <div class="demo-credentials">
+                <strong>Demo Credentials:</strong><br>
+                Username: demouser<br>
+                Password: fashion123
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        console.log('Login attempt:', { username, password });
+        
+        // Enhanced login logic for testing
+        if (username === 'demouser' && password === 'fashion123') {
+            console.log('✅ Login successful!');
+            // Set a success flag in sessionStorage
+            sessionStorage.setItem('loginSuccess', 'true');
+            sessionStorage.setItem('username', username);
+            // Redirect to account page
+            window.location.href = '/fashionhub/account.html';
+        } else {
+            console.log('❌ Login failed');
+            // Show error message
+            const errorDiv = document.createElement('div');
+            errorDiv.style.cssText = 'background: #f8d7da; color: #721c24; padding: 10px; border-radius: 4px; margin-top: 10px;';
+            errorDiv.textContent = 'Invalid credentials. Please use: demouser / fashion123';
+            
+            // Remove existing error if any
+            const existingError = document.querySelector('.error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+            
+            errorDiv.className = 'error-message';
+            this.appendChild(errorDiv);
+        }
+    });
+
+    // Check if redirected from successful login
+    if (window.location.search.includes('login=success')) {
+        console.log('Redirected from successful login');
+    }
+    
+    console.log('Login page loaded successfully');
+</script>
+</body>
+</html>
