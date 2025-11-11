@@ -29,7 +29,7 @@ test('TC2: Verify all links return valid status codes', async ({ page, browserNa
       } catch (error) {
         const msg = error instanceof Error ? error.message : String(error);
         console.log(`${browserName} - ✗ ${link.href} - Error: ${msg}`);
-        // 不让 Firefox 因单个失败中断
+   
         if (browserName !== 'firefox') {
           throw error;
         }
@@ -45,7 +45,7 @@ test('TC2: Verify all links return valid status codes', async ({ page, browserNa
   console.log(`${browserName} - Invalid links (4xx/5xx): ${invalidLinks.length}`);
 });
 
-// ✅ 改为非阻塞性能测试，不断言时间
+
 test('TC2: Log page load performance (non-blocking)', async ({ page, browserName }) => {
   const homePage = new HomePage(page);
 
@@ -57,7 +57,6 @@ test('TC2: Log page load performance (non-blocking)', async ({ page, browserName
 
   console.log(`${browserName} - Page load time: ${loadTime}ms`);
 
-  // ✅ 不断言时间，只验证页面可加载成功
   const bodyText = await page.textContent('body');
   expect(bodyText?.length).toBeGreaterThan(100);
 });
