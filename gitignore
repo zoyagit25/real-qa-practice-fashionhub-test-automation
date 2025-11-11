@@ -22,7 +22,7 @@ build/
 # ================================
 playwright-report/
 test-results/
-results/                    # 添加这一行 - 删除旧的results文件夹
+results/                    
 playwright/.cache/
 blob-report/
 *.trace.zip
