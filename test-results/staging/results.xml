@@ -1,0 +1,404 @@
+<testsuites id="" name="" tests="33" failures="0" skipped="0" errors="0" time="75.159553">
+<testsuite name="test-case-1.spec.ts" timestamp="2025-11-11T04:16:44.838Z" hostname="chromium" tests="3" failures="0" skipped="0" time="19.335" errors="0">
+<testcase name="TC1: Verify no console errors on home page" classname="test-case-1.spec.ts" time="6.442">
+<system-out>
+<![CDATA[chromium: Navigating to https://pocketaces2.github.io/fashionhub/
+chromium: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/
+chromium - Home page console errors: []
+
+[[ATTACHMENT|../test-case-1-TC1-Verify-no-console-errors-on-home-page-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="TC1: Verify about page has intentional error" classname="test-case-1.spec.ts" time="6.151">
+<system-out>
+<![CDATA[chromium: Navigating to https://pocketaces2.github.io/fashionhub/about.html
+chromium: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/about.html
+chromium - About page console errors: [ [32m'This is an intentional error message!'[39m ]
+chromium - Has intentional error: [33mtrue[39m
+
+[[ATTACHMENT|../test-case-1-TC1-Verify-about-page-has-intentional-error-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="TC1: Verify products page has no unexpected errors" classname="test-case-1.spec.ts" time="6.742">
+<system-out>
+<![CDATA[chromium: Navigating to https://pocketaces2.github.io/fashionhub/products.html
+chromium: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/products.html
+chromium - Products page console errors: []
+
+[[ATTACHMENT|../test-case-1-TC1-Verify-pro-43022-ge-has-no-unexpected-errors-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="test-case-2.spec.ts" timestamp="2025-11-11T04:16:44.838Z" hostname="chromium" tests="2" failures="0" skipped="0" time="10.54" errors="0">
+<testcase name="TC2: Verify all links return valid status codes" classname="test-case-2.spec.ts" time="5.083">
+<system-out>
+<![CDATA[chromium: Navigating to https://pocketaces2.github.io/fashionhub/
+chromium: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/
+chromium - Found 6 links on the page
+chromium - ✓ https://pocketaces2.github.io/fashionhub/ - Status: 200 VALID
+chromium - ✓ https://pocketaces2.github.io/fashionhub/account.html - Status: 200 VALID
+chromium - ✓ https://pocketaces2.github.io/fashionhub/products.html - Status: 200 VALID
+chromium - ✓ https://pocketaces2.github.io/fashionhub/cart.html - Status: 200 VALID
+chromium - ✓ https://pocketaces2.github.io/fashionhub/about.html - Status: 200 VALID
+chromium - ✓ https://pocketaces2.github.io/fashionhub/products.html - Status: 200 VALID
+
+chromium - === LINK VALIDATION SUMMARY ===
+chromium - Total links tested: 6
+chromium - Valid links (2xx/3xx): 6
+chromium - Invalid links (4xx/5xx): 0
+
+[[ATTACHMENT|../test-case-2-TC2-Verify-all-links-return-valid-status-codes-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="TC2: Log page load performance (non-blocking)" classname="test-case-2.spec.ts" time="5.457">
+<system-out>
+<![CDATA[chromium: Navigating to https://pocketaces2.github.io/fashionhub/
+chromium: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/
+chromium - Page load time: 4358ms
+
+[[ATTACHMENT|../test-case-2-TC2-Log-page-load-performance-non-blocking--chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="test-case-3.spec.ts" timestamp="2025-11-11T04:16:44.838Z" hostname="chromium" tests="3" failures="0" skipped="0" time="23.369" errors="0">
+<testcase name="TC3: Verify login page accessibility and form elements" classname="test-case-3.spec.ts" time="4.461">
+<system-out>
+<![CDATA[chromium: Navigating to https://pocketaces2.github.io/fashionhub/login.html
+chromium: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/login.html
+chromium - Login page URL: https://pocketaces2.github.io/fashionhub/login.html
+chromium - Login page title: Home
+chromium - Page content length: [33m388[39m
+
+[[ATTACHMENT|../test-case-3-TC3-Verify-log-9cde2-ssibility-and-form-elements-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="TC3: Verify basic page functionality" classname="test-case-3.spec.ts" time="0.774">
+<system-out>
+<![CDATA[chromium: Navigating to https://pocketaces2.github.io/fashionhub/login.html
+chromium: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/login.html
+chromium - Page title: Home
+chromium - Body text length: [33m388[39m
+
+[[ATTACHMENT|../test-case-3-TC3-Verify-basic-page-functionality-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="TC3: Verify login form validation (stable)" classname="test-case-3.spec.ts" time="18.134">
+<system-out>
+<![CDATA[chromium: Navigating to https://pocketaces2.github.io/fashionhub/login.html
+chromium: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/login.html
+chromium: Testing valid credentials...
+Attempting login with: { username: [32m'demouser'[39m, password: [32m'fashion123'[39m }
+chromium - After valid login URL: https://pocketaces2.github.io/fashionhub/account.html
+chromium: Navigating to https://pocketaces2.github.io/fashionhub/login.html
+chromium: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/login.html
+chromium: Testing invalid credentials...
+Attempting login with: { username: [32m'wronguser'[39m, password: [32m'wrongpass'[39m }
+chromium: Testing empty credentials...
+Attempting login with: { username: [32m''[39m, password: [32m''[39m }
+
+[[ATTACHMENT|../test-case-3-TC3-Verify-login-form-validation-stable--chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="test-case-4.spec.ts" timestamp="2025-11-11T04:16:44.838Z" hostname="chromium" tests="3" failures="0" skipped="0" time="1.221" errors="0">
+<testcase name="TC4: Generate CSV of open pull requests" classname="test-case-4.spec.ts" time="0.941">
+<system-out>
+<![CDATA[CSV generated at: /app/test-results/pull-requests.csv
+Found 30 open pull requests
+]]>
+</system-out>
+</testcase>
+<testcase name="TC4: Verify GitHub API error handling" classname="test-case-4.spec.ts" time="0.273">
+<system-out>
+<![CDATA[Non-existent repo returned 0 PRs
+]]>
+</system-out>
+<system-err>
+<![CDATA[GitHub API returned 404 for nonexistent/repo
+]]>
+</system-err>
+</testcase>
+<testcase name="TC4: Verify CSV generation with empty data" classname="test-case-4.spec.ts" time="0.007">
+<system-out>
+<![CDATA[Empty CSV generated successfully
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="test-case-1.spec.ts" timestamp="2025-11-11T04:16:44.838Z" hostname="firefox" tests="3" failures="0" skipped="0" time="57.042" errors="0">
+<testcase name="TC1: Verify no console errors on home page" classname="test-case-1.spec.ts" time="17.111">
+<system-out>
+<![CDATA[firefox: Navigating to https://pocketaces2.github.io/fashionhub/
+firefox: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/
+firefox - Home page console errors: []
+
+[[ATTACHMENT|../test-case-1-TC1-Verify-no-console-errors-on-home-page-firefox/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="TC1: Verify about page has intentional error" classname="test-case-1.spec.ts" time="20.705">
+<system-out>
+<![CDATA[firefox: Navigating to https://pocketaces2.github.io/fashionhub/about.html
+firefox: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/about.html
+firefox - About page console errors: [ [32m'This is an intentional error message!'[39m ]
+firefox - Has intentional error: [33mtrue[39m
+
+[[ATTACHMENT|../test-case-1-TC1-Verify-about-page-has-intentional-error-firefox/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="TC1: Verify products page has no unexpected errors" classname="test-case-1.spec.ts" time="19.226">
+<system-out>
+<![CDATA[firefox: Navigating to https://pocketaces2.github.io/fashionhub/products.html
+firefox: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/products.html
+firefox - Products page console errors: []
+
+[[ATTACHMENT|../test-case-1-TC1-Verify-pro-43022-ge-has-no-unexpected-errors-firefox/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="test-case-2.spec.ts" timestamp="2025-11-11T04:16:44.838Z" hostname="firefox" tests="2" failures="0" skipped="0" time="37.998" errors="0">
+<testcase name="TC2: Verify all links return valid status codes" classname="test-case-2.spec.ts" time="18.886">
+<system-out>
+<![CDATA[firefox: Navigating to https://pocketaces2.github.io/fashionhub/
+firefox: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/
+firefox - Found 6 links on the page
+firefox - ✓ https://pocketaces2.github.io/fashionhub/ - Status: 200 VALID
+firefox - ✓ https://pocketaces2.github.io/fashionhub/account.html - Status: 200 VALID
+firefox - ✓ https://pocketaces2.github.io/fashionhub/products.html - Status: 200 VALID
+firefox - ✓ https://pocketaces2.github.io/fashionhub/cart.html - Status: 200 VALID
+firefox - ✓ https://pocketaces2.github.io/fashionhub/about.html - Status: 200 VALID
+firefox - ✓ https://pocketaces2.github.io/fashionhub/products.html - Status: 200 VALID
+
+firefox - === LINK VALIDATION SUMMARY ===
+firefox - Total links tested: 6
+firefox - Valid links (2xx/3xx): 6
+firefox - Invalid links (4xx/5xx): 0
+
+[[ATTACHMENT|../test-case-2-TC2-Verify-all-links-return-valid-status-codes-firefox/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="TC2: Log page load performance (non-blocking)" classname="test-case-2.spec.ts" time="19.112">
+<system-out>
+<![CDATA[firefox: Navigating to https://pocketaces2.github.io/fashionhub/
+firefox: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/
+firefox - Page load time: 16191ms
+
+[[ATTACHMENT|../test-case-2-TC2-Log-page-load-performance-non-blocking--firefox/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="test-case-3.spec.ts" timestamp="2025-11-11T04:16:44.838Z" hostname="firefox" tests="3" failures="0" skipped="0" time="45.503" errors="0">
+<testcase name="TC3: Verify login page accessibility and form elements" classname="test-case-3.spec.ts" time="18.168">
+<system-out>
+<![CDATA[firefox: Navigating to https://pocketaces2.github.io/fashionhub/login.html
+firefox: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/login.html
+firefox - Login page URL: https://pocketaces2.github.io/fashionhub/login.html
+firefox - Login page title: Home
+firefox - Page content length: [33m388[39m
+
+[[ATTACHMENT|../test-case-3-TC3-Verify-log-9cde2-ssibility-and-form-elements-firefox/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="TC3: Verify basic page functionality" classname="test-case-3.spec.ts" time="3.231">
+<system-out>
+<![CDATA[firefox: Navigating to https://pocketaces2.github.io/fashionhub/login.html
+firefox: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/login.html
+firefox - Page title: Home
+firefox - Body text length: [33m388[39m
+
+[[ATTACHMENT|../test-case-3-TC3-Verify-basic-page-functionality-firefox/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="TC3: Verify login form validation (stable)" classname="test-case-3.spec.ts" time="24.104">
+<system-out>
+<![CDATA[firefox: Navigating to https://pocketaces2.github.io/fashionhub/login.html
+firefox: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/login.html
+firefox: Testing valid credentials...
+Attempting login with: { username: [32m'demouser'[39m, password: [32m'fashion123'[39m }
+firefox - After valid login URL: https://pocketaces2.github.io/fashionhub/account.html
+firefox: Navigating to https://pocketaces2.github.io/fashionhub/login.html
+firefox: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/login.html
+firefox: Testing invalid credentials...
+Attempting login with: { username: [32m'wronguser'[39m, password: [32m'wrongpass'[39m }
+firefox: Testing empty credentials...
+Attempting login with: { username: [32m''[39m, password: [32m''[39m }
+
+[[ATTACHMENT|../test-case-3-TC3-Verify-login-form-validation-stable--firefox/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="test-case-4.spec.ts" timestamp="2025-11-11T04:16:44.838Z" hostname="firefox" tests="3" failures="0" skipped="0" time="1.316" errors="0">
+<testcase name="TC4: Generate CSV of open pull requests" classname="test-case-4.spec.ts" time="1.019">
+<system-out>
+<![CDATA[CSV generated at: /app/test-results/pull-requests.csv
+Found 30 open pull requests
+]]>
+</system-out>
+</testcase>
+<testcase name="TC4: Verify GitHub API error handling" classname="test-case-4.spec.ts" time="0.291">
+<system-out>
+<![CDATA[Non-existent repo returned 0 PRs
+]]>
+</system-out>
+<system-err>
+<![CDATA[GitHub API returned 404 for nonexistent/repo
+]]>
+</system-err>
+</testcase>
+<testcase name="TC4: Verify CSV generation with empty data" classname="test-case-4.spec.ts" time="0.006">
+<system-out>
+<![CDATA[Empty CSV generated successfully
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="test-case-1.spec.ts" timestamp="2025-11-11T04:16:44.838Z" hostname="webkit" tests="3" failures="0" skipped="0" time="19.097" errors="0">
+<testcase name="TC1: Verify no console errors on home page" classname="test-case-1.spec.ts" time="5.94">
+<system-out>
+<![CDATA[webkit: Navigating to https://pocketaces2.github.io/fashionhub/
+webkit: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/
+webkit - Home page console errors: []
+
+[[ATTACHMENT|../test-case-1-TC1-Verify-no-console-errors-on-home-page-webkit/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="TC1: Verify about page has intentional error" classname="test-case-1.spec.ts" time="5.968">
+<system-out>
+<![CDATA[webkit: Navigating to https://pocketaces2.github.io/fashionhub/about.html
+webkit: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/about.html
+webkit - About page console errors: [ [32m'This is an intentional error message!'[39m ]
+webkit - Has intentional error: [33mtrue[39m
+
+[[ATTACHMENT|../test-case-1-TC1-Verify-about-page-has-intentional-error-webkit/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="TC1: Verify products page has no unexpected errors" classname="test-case-1.spec.ts" time="7.189">
+<system-out>
+<![CDATA[webkit: Navigating to https://pocketaces2.github.io/fashionhub/products.html
+webkit: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/products.html
+webkit - Products page console errors: []
+
+[[ATTACHMENT|../test-case-1-TC1-Verify-pro-43022-ge-has-no-unexpected-errors-webkit/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="test-case-2.spec.ts" timestamp="2025-11-11T04:16:44.838Z" hostname="webkit" tests="2" failures="0" skipped="0" time="6.834" errors="0">
+<testcase name="TC2: Verify all links return valid status codes" classname="test-case-2.spec.ts" time="4.168">
+<system-out>
+<![CDATA[webkit: Navigating to https://pocketaces2.github.io/fashionhub/
+webkit: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/
+webkit - Found 6 links on the page
+webkit - ✓ https://pocketaces2.github.io/fashionhub/ - Status: 200 VALID
+webkit - ✓ https://pocketaces2.github.io/fashionhub/account.html - Status: 200 VALID
+webkit - ✓ https://pocketaces2.github.io/fashionhub/products.html - Status: 200 VALID
+webkit - ✓ https://pocketaces2.github.io/fashionhub/cart.html - Status: 200 VALID
+webkit - ✓ https://pocketaces2.github.io/fashionhub/about.html - Status: 200 VALID
+webkit - ✓ https://pocketaces2.github.io/fashionhub/products.html - Status: 200 VALID
+
+webkit - === LINK VALIDATION SUMMARY ===
+webkit - Total links tested: 6
+webkit - Valid links (2xx/3xx): 6
+webkit - Invalid links (4xx/5xx): 0
+
+[[ATTACHMENT|../test-case-2-TC2-Verify-all-links-return-valid-status-codes-webkit/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="TC2: Log page load performance (non-blocking)" classname="test-case-2.spec.ts" time="2.666">
+<system-out>
+<![CDATA[webkit: Navigating to https://pocketaces2.github.io/fashionhub/
+webkit: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/
+webkit - Page load time: 3881ms
+
+[[ATTACHMENT|../test-case-2-TC2-Log-page-load-performance-non-blocking--webkit/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="test-case-3.spec.ts" timestamp="2025-11-11T04:16:44.838Z" hostname="webkit" tests="3" failures="0" skipped="0" time="27.714" errors="0">
+<testcase name="TC3: Verify login page accessibility and form elements" classname="test-case-3.spec.ts" time="4.368">
+<system-out>
+<![CDATA[webkit: Navigating to https://pocketaces2.github.io/fashionhub/login.html
+webkit: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/login.html
+webkit - Login page URL: https://pocketaces2.github.io/fashionhub/login.html
+webkit - Login page title: Home
+webkit - Page content length: [33m388[39m
+
+[[ATTACHMENT|../test-case-3-TC3-Verify-log-9cde2-ssibility-and-form-elements-webkit/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="TC3: Verify basic page functionality" classname="test-case-3.spec.ts" time="3.786">
+<system-out>
+<![CDATA[webkit: Navigating to https://pocketaces2.github.io/fashionhub/login.html
+webkit: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/login.html
+webkit - Page title: Home
+webkit - Body text length: [33m388[39m
+
+[[ATTACHMENT|../test-case-3-TC3-Verify-basic-page-functionality-webkit/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="TC3: Verify login form validation (stable)" classname="test-case-3.spec.ts" time="19.56">
+<system-out>
+<![CDATA[webkit: Navigating to https://pocketaces2.github.io/fashionhub/login.html
+webkit: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/login.html
+webkit: Testing valid credentials...
+Attempting login with: { username: [32m'demouser'[39m, password: [32m'fashion123'[39m }
+webkit - After valid login URL: https://pocketaces2.github.io/fashionhub/account.html
+webkit: Navigating to https://pocketaces2.github.io/fashionhub/login.html
+webkit: ✅ Successfully navigated to https://pocketaces2.github.io/fashionhub/login.html
+webkit: Testing invalid credentials...
+Attempting login with: { username: [32m'wronguser'[39m, password: [32m'wrongpass'[39m }
+webkit: Testing empty credentials...
+Attempting login with: { username: [32m''[39m, password: [32m''[39m }
+
+[[ATTACHMENT|../test-case-3-TC3-Verify-login-form-validation-stable--webkit/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="test-case-4.spec.ts" timestamp="2025-11-11T04:16:44.838Z" hostname="webkit" tests="3" failures="0" skipped="0" time="0.855" errors="0">
+<testcase name="TC4: Generate CSV of open pull requests" classname="test-case-4.spec.ts" time="0.69">
+<system-out>
+<![CDATA[CSV generated at: /app/test-results/pull-requests.csv
+Found 30 open pull requests
+]]>
+</system-out>
+</testcase>
+<testcase name="TC4: Verify GitHub API error handling" classname="test-case-4.spec.ts" time="0.16">
+<system-out>
+<![CDATA[Non-existent repo returned 0 PRs
+]]>
+</system-out>
+<system-err>
+<![CDATA[GitHub API returned 404 for nonexistent/repo
+]]>
+</system-err>
+</testcase>
+<testcase name="TC4: Verify CSV generation with empty data" classname="test-case-4.spec.ts" time="0.005">
+<system-out>
+<![CDATA[Empty CSV generated successfully
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

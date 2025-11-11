@@ -13,10 +13,18 @@
         nav { background: #2c3e50; padding: 1rem 0; }
         nav .container { display: flex; justify-content: space-between; align-items: center; }
         .logo { color: white; font-size: 1.5rem; font-weight: bold; }
-        .nav-links { display: flex; list-style: none; }
+        .nav-links { display: flex; list-style: none; align-items: center; }
         .nav-links li { margin-left: 2rem; }
         .nav-links a { color: white; text-decoration: none; transition: color 0.3s; }
         .nav-links a:hover { color: #3498db; }
+        .cart-count { 
+            background: #e74c3c; 
+            color: white; 
+            border-radius: 50%; 
+            padding: 2px 6px; 
+            font-size: 0.8rem;
+            margin-left: 5px;
+        }
         
         /* Hero Section */
         .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 4rem 0; text-align: center; }
@@ -26,8 +34,33 @@
         /* Products */
         .products { padding: 4rem 0; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .product-card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; text-align: center; }
+        .product-card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; text-align: center; transition: transform 0.3s; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .product-card img { max-width: 100%; height: 200px; object-fit: cover; border-radius: 4px; }
+        .add-to-cart { 
+            background: #3498db; 
+            color: white; 
+            border: none; 
+            padding: 0.5rem 1rem; 
+            border-radius: 4px; 
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .add-to-cart:hover { background: #2980b9; }
+        .add-to-cart:disabled { 
+            background: #95a5a6; 
+            cursor: not-allowed; 
+        }
+        
+        /* Performance metrics */
+        .performance { 
+            background: #f8f9fa; 
+            padding: 1rem; 
+            margin: 2rem 0; 
+            border-radius: 4px; 
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
         
         /* Footer */
         footer { background: #2c3e50; color: white; text-align: center; padding: 2rem 0; margin-top: 4rem; }
@@ -44,7 +77,10 @@
                 <li><a href="/fashionhub/about.html">About</a></li>
                 <li><a href="/fashionhub/login.html">Login</a></li>
                 <li><a href="/fashionhub/account.html">Account</a></li>
-                <li><a href="/fashionhub/cart.html">Cart</a></li>
+                <li>
+                    <a href="/fashionhub/cart.html">Cart</a>
+                    <span id="cartCount" class="cart-count">0</span>
+                </li>
             </ul>
         </div>
     </nav>
@@ -58,31 +94,43 @@
         </div>
     </section>
 
+    <!-- Performance Metrics -->
+    <section class="performance">
+        <div class="container">
+            <strong>Performance Metrics:</strong>
+            <div id="loadTime">Page load time: calculating...</div>
+            <div id="memoryUsage">Memory usage: calculating...</div>
+        </div>
+    </section>
+
     <!-- Featured Products -->
     <section class="products">
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 2rem;">Featured Products</h2>
             <div class="product-grid">
-                <div class="product-card">
+                <div class="product-card" data-product-id="1">
                     <div style="background: #f0f0f0; height: 200px; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #666;">
                         Product Image 1
                     </div>
                     <h3>Summer Dress</h3>
                     <p>$49.99</p>
+                    <button class="add-to-cart" onclick="addToCart(1, 'Summer Dress', 49.99)">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-id="2">
                     <div style="background: #f0f0f0; height: 200px; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #666;">
                         Product Image 2
                     </div>
                     <h3>Denim Jacket</h3>
                     <p>$79.99</p>
+                    <button class="add-to-cart" onclick="addToCart(2, 'Denim Jacket', 79.99)">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-product-id="3">
                     <div style="background: #f0f0f0; height: 200px; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #666;">
                         Product Image 3
                     </div>
                     <h3>Casual Sneakers</h3>
                     <p>$59.99</p>
+                    <button class="add-to-cart" onclick="addToCart(3, 'Casual Sneakers', 59.99)">Add to Cart</button>
                 </div>
             </div>
         </div>
@@ -95,7 +143,67 @@
     </footer>
 
     <script>
+        // Performance monitoring
+        const startTime = performance.now();
+        
+        window.addEventListener('load', () => {
+            const loadTime = performance.now() - startTime;
+            document.getElementById('loadTime').textContent = `Page load time: ${loadTime.toFixed(2)}ms`;
+            
+            // Mock memory usage
+            if (performance.memory) {
+                const memoryUsage = (performance.memory.usedJSHeapSize / 1048576).toFixed(2);
+                document.getElementById('memoryUsage').textContent = `Memory usage: ${memoryUsage} MB`;
+            }
+        });
+
+        // Shopping cart functionality
+        let cart = JSON.parse(localStorage.getItem('fashionhub_cart')) || [];
+        
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+            localStorage.setItem('fashionhub_cart', JSON.stringify(cart));
+        }
+        
+        function addToCart(productId, productName, price) {
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+                console.log(`🛒 Updated quantity for ${productName}: ${existingItem.quantity}`);
+            } else {
+                cart.push({
+                    id: productId,
+                    name: productName,
+                    price: price,
+                    quantity: 1
+                });
+                console.log(`🛒 Added to cart: ${productName}`);
+            }
+            
+            updateCartCount();
+            
+            // Show feedback
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = 'Added!';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.disabled = false;
+            }, 1000);
+        }
+        
+        // Initialize cart count
+        updateCartCount();
+        
         console.log('FashionHub home page loaded successfully');
+        
+        // Generate some intentional console messages for testing
+        console.warn('This is a warning message for testing purposes');
+        console.info('Page initialized with shopping cart functionality');
     </script>
 </body>
 </html>

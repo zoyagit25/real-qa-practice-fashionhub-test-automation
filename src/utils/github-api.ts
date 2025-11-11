@@ -21,7 +21,8 @@ export class GitHubAPI {
       });
 
       if (!response.ok) {
-        throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
+        console.warn(`GitHub API returned ${response.status} for ${repo}`);
+        return []; // 优雅地返回空数组而不是抛出异常
       }
 
       const prs: GitHubPR[] = await response.json();
@@ -33,7 +34,7 @@ export class GitHubAPI {
       }));
     } catch (error) {
       console.error('Error fetching PRs from GitHub:', error);
-      return [];
+      return []; // 优雅地返回空数组
     }
   }
 }
