@@ -46,7 +46,7 @@ test('TC3: Verify basic page functionality', async ({ page, browserName }) => {
   expect(bodyText?.length).toBeGreaterThan(0);
 });
 
-// ✅ 改进版：保留所有场景，但避免 flaky
+
 test('TC3: Verify login form validation (stable)', async ({ page, browserName }) => {
   const loginPage = new LoginPage(page);
 
@@ -54,7 +54,7 @@ test('TC3: Verify login form validation (stable)', async ({ page, browserName })
   await page.waitForLoadState('networkidle');
   await page.waitForTimeout(1000);
 
-  // 有效凭据
+
   console.log(`${browserName}: Testing valid credentials...`);
   await loginPage.login('demouser', 'fashion123');
   await page.waitForLoadState('domcontentloaded', { timeout: 10000 });
@@ -63,15 +63,14 @@ test('TC3: Verify login form validation (stable)', async ({ page, browserName })
   const afterValidURL = page.url();
   console.log(`${browserName} - After valid login URL: ${afterValidURL}`);
 
-  // ✅ 改为容错验证：只要页面可访问，不强制判断跳转
+
   const validPageText = await page.textContent('body');
   expect(validPageText?.length).toBeGreaterThan(0);
 
-  // 返回登录页
   await loginPage.navigateTo('login.html');
   await page.waitForLoadState('networkidle');
 
-  // 无效凭据
+ 
   console.log(`${browserName}: Testing invalid credentials...`);
   await loginPage.login('wronguser', 'wrongpass');
   await page.waitForTimeout(1500);
@@ -79,7 +78,7 @@ test('TC3: Verify login form validation (stable)', async ({ page, browserName })
   const invalidPageText = await page.textContent('body');
   expect(invalidPageText?.length).toBeGreaterThan(0);
 
-  // 空凭据
+
   console.log(`${browserName}: Testing empty credentials...`);
   await loginPage.login('', '');
   await page.waitForTimeout(1500);
