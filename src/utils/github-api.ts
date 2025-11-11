@@ -22,7 +22,7 @@ export class GitHubAPI {
 
       if (!response.ok) {
         console.warn(`GitHub API returned ${response.status} for ${repo}`);
-        return []; // 优雅地返回空数组而不是抛出异常
+        return []; 
       }
 
       const prs: GitHubPR[] = await response.json();
@@ -34,7 +34,7 @@ export class GitHubAPI {
       }));
     } catch (error) {
       console.error('Error fetching PRs from GitHub:', error);
-      return []; // 优雅地返回空数组
+      return []; 
     }
   }
 }
