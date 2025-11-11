@@ -14,7 +14,7 @@ test('TC1: Verify no console errors on home page', async ({ page, browserName })
 
   await aboutPage.navigateTo('');
   
-  // Firefox需要更长的等待时间
+ 
   if (browserName === 'firefox') {
     await page.waitForTimeout(3000);
   } else {
@@ -22,9 +22,7 @@ test('TC1: Verify no console errors on home page', async ({ page, browserName })
   }
   
   console.log(`${browserName} - Home page console errors:`, errors);
-  
-  // 主页应该没有控制台错误
-  // 过滤掉无害的警告信息
+ 
   const severeErrors = errors.filter(error => 
     !error.includes('deprecated') && 
     !error.includes('experimental') &&
@@ -48,7 +46,7 @@ test('TC1: Verify about page has intentional error', async ({ page, browserName 
 
   await aboutPage.navigateTo('about.html');
   
-  // Firefox需要更长的等待时间
+
   if (browserName === 'firefox') {
     await page.waitForTimeout(3000);
   } else {
@@ -66,7 +64,7 @@ test('TC1: Verify about page has intentional error', async ({ page, browserName 
   expect(hasIntentionalError).toBe(true);
 });
 
-// 新增：边界测试 - 验证其他页面没有意外错误
+
 test('TC1: Verify products page has no unexpected errors', async ({ page, browserName }) => {
   const aboutPage = new AboutPage(page);
   
@@ -83,7 +81,7 @@ test('TC1: Verify products page has no unexpected errors', async ({ page, browse
   
   console.log(`${browserName} - Products page console errors:`, errors);
   
-  // 产品页面不应该有控制台错误
+
   const unexpectedErrors = errors.filter(error => 
     !error.includes('deprecated') && 
     !error.includes('experimental')
